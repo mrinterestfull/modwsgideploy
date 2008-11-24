@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: modwsgideploy
+Version: 0.0dev
+Summary: Template that helps to deploy via mod_wsgi and apache.
+Home-page: http://lucasmanual.com/mywiki/modwsgideploy
+Author: Lukasz Szybalski
+Author-email: szybalski@gmail.com
+License: BSD
+Description: Templates builds a wsgi file and apache config file that user puts in apache and runs the app in few simple steps.
+Keywords: apache mod_wsgi turbogears pylons deploy script
+Platform: UNKNOWN
