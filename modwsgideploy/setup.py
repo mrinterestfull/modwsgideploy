@@ -18,11 +18,12 @@ Templates builds a wsgi file and apache config file that user puts in apache and
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          # -*- Extra requirements: -*-
+        "cheetah>=2.0"  
+        # -*- Extra requirements: -*-
       ],
       entry_points="""
-        [paste.paster_create_template]
-        modwsgideploy = modwsgideploy.modwsgideploy:FrameworkTemplate
+        [paste.paster_command]
+        modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
       # -*- Entry points: -*-
       """,
       )

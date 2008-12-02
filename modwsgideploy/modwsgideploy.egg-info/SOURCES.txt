@@ -1,9 +1,12 @@
 setup.cfg
 setup.py
 modwsgideploy/__init__.py
+modwsgideploy/commands.py
 modwsgideploy.egg-info/PKG-INFO
 modwsgideploy.egg-info/SOURCES.txt
 modwsgideploy.egg-info/dependency_links.txt
 modwsgideploy.egg-info/entry_points.txt
 modwsgideploy.egg-info/not-zip-safe
+modwsgideploy.egg-info/requires.txt
 modwsgideploy.egg-info/top_level.txt
+modwsgideploy/templates/__init__.py

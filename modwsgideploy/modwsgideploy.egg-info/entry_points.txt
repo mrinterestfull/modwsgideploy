@@ -1,3 +1,5 @@
 
+        [paste.paster_command]
+        modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
       # -*- Entry points: -*-
       

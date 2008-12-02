@@ -45,14 +45,9 @@ os.environ['PYTHON_EGG_CACHE'] = '/usr/local/turbogears/${package}/python-eggs'
 #from paste.script.util.logging_config import fileConfig
 #fileConfig('/usr/local/turbogears/${package}/production.ini')
 
-#7.[Not needed] Referance Only. 
-#Pylons framework provides the paste.deploy.loadapp() function for constructing a WSGI application stack based on a specific configuration file.
-#import pylons
-#pylons.config.update({"server.webpath":"/${package}"})
-
-#8. Load you application production.ini file.
+#7. Load you application production.ini file.
 from paste.deploy import loadapp
 application = loadapp('config:/usr/local/turbogears/${package}/production.ini')
 
 
-#9.[Optional] If you want to test modwsgi only, uncomment section 3 in you /usr/local/turbogears/${package}/apache/${package}.
+#8.[Optional] If you want to test modwsgi only, uncomment section 3 in you /usr/local/turbogears/${package}/apache/${package}.
