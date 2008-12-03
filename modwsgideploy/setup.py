@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.0'
+version = '0.1'
 
 setup(name='modwsgideploy',
       version=version,
@@ -24,6 +24,5 @@ Templates builds a wsgi file and apache config file that user puts in apache and
       entry_points="""
         [paste.paster_command]
         modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
-      # -*- Entry points: -*-
       """,
       )

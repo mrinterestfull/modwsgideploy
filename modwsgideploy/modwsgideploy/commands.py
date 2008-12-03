@@ -1,12 +1,11 @@
-"""Paster Commands, for use tg.ext.geo project
+"""Paster Commands, for use modwsgideploy project
 
 The command(s) listed here are for use with Paste to enable easy creation of
-various tg.ext.geo files. The controller, model and layer commands are based
-on the MapFish paster commands.
+various mowsgideploy files..
 
 Currently available commands:
 
-    geo-controller, geo-model, geo-layer, geo-tilecache
+    modwsgi_deploy
 """
 
 import os
@@ -14,6 +13,7 @@ import sys
 
 from paste.script.command import Command, BadCommand
 from paste.script.filemaker import FileOp
+from paste.script.copydir import copy_dir
 
 import pylons.util as util
 
@@ -70,9 +70,9 @@ class ModwsgiCommand(Command):
     summary = __doc__.splitlines()[0]
     usage = '\n' + __doc__
 
-    min_args = 1
+    min_args = 0
     max_args = 1
-    group_name = 'tg'
+    group_name = 'TurboGears2'
 
     default_verbosity = 3
 
@@ -81,19 +81,26 @@ class ModwsgiCommand(Command):
                       action='store_true',
                       dest='no_test',
                       help="Don't create the test; just the controller")
-
+    parser.add_option('-o', '--output-dir',
+                      dest='output_dir',
+                      metavar='DIR',
+                      default='.',
+                      help="Write put the directory into DIR (default current directory)")
     def command(self):
         """Main command to create a tg.ext.geo controller"""
+        output_dir = os.path.join(self.options.output_dir, 'apache')
+        print output_dir
         try:
             fileOp = FileOp(source_dir=os.path.join(
                 os.path.dirname(__file__), 'templates'))
             try:
+                print self.args
                 name, directory = fileOp.parse_path_name_args(self.args[0])
             except:
                 raise BadCommand('No egg_info directory was found')
 
             # Check the name isn't the same as the package
-            base_package = file_op.find_dir('controllers', True)[0]
+            base_package = FileOp.find_dir('controllers', True)[0]
             if base_package.lower() == name.lower():
                 raise BadCommand(
                     'Your controller name should not be the same as '
