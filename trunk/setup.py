@@ -22,7 +22,7 @@ Templates builds a wsgi file and apache config file that user puts in apache and
         # -*- Extra requirements: -*-
       ],
       entry_points="""
-        [paste.paster_command]
+        [paste.global_paster_command]
         modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
       """,
       )
