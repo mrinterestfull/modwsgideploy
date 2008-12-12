@@ -89,15 +89,37 @@ class ModwsgiCommand(Command):
     def command(self):
         """Main command to create a tg.ext.geo controller"""
         output_dir = os.path.join(self.options.output_dir, 'apache')
-        print output_dir
+        input_dir= source_filename = os.path.join(os.path.dirname(__file__), 'templates/apache')
+        print self.args
+        from paste.script import pluginlib
+        egg_info_dir = pluginlib.find_egg_info_dir(os.getcwd())
+        plugins= os.path.splitext(os.path.basename(egg_info_dir))[0]
+        print os.path.splitext(os.path.basename(egg_info_dir))[0]
+        dist_name= pluginlib.get_distro(plugins)
+        if dist_name.has_metadata('PKG-INFO'):
+            data=dist_name.get_metadata('PKG-INFO')
+            for add_info in pluginlib.parse_lines(data):
+                print add_info
+        
+        vars = {'project': plugins,
+                'package': plugins,
+                'egg': pluginlib.egg_name(str(dist_name)),
+                }
+
+        print 'var',vars
+        print 'outdir',output_dir
+        copy_dir(input_dir, output_dir, vars, verbosity=5, simulate=False, use_cheetah=True)
+
+        return
         try:
-            fileOp = FileOp(source_dir=os.path.join(
-                os.path.dirname(__file__), 'templates'))
-            try:
-                print self.args
-                name, directory = fileOp.parse_path_name_args(self.args[0])
-            except:
-                raise BadCommand('No egg_info directory was found')
+            #fileOp = FileOp(source_dir=os.path.join(
+            #    os.path.dirname(__file__), 'templates'))
+            #try:
+            #    print 'args', self.args
+            #    name, directory = fileOp.parse_path_name_args(self.args[0])
+            #except Exception ,e:
+            #    print e
+            #    raise BadCommand('No egg_info directory was found')
 
             # Check the name isn't the same as the package
             base_package = FileOp.find_dir('controllers', True)[0]
