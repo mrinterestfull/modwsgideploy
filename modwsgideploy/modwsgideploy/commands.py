@@ -17,6 +17,9 @@ from paste.script.copydir import copy_dir
 
 import pylons.util as util
 
+#Needed to manipulate egg information
+from paste.script import pluginlib
+
 def can_import(name):
     """Attempt to __import__ the specified package/module, returning True when
     succeeding, otherwise False"""
@@ -87,90 +90,30 @@ class ModwsgiCommand(Command):
                       default='.',
                       help="Write put the directory into DIR (default current directory)")
     def command(self):
-        """Main command to create a tg.ext.geo controller"""
+        """Main command to create a modwsgi configuration files"""
+        #Output directory is current folder unless specified vi output command.
         output_dir = os.path.join(self.options.output_dir, 'apache')
+        #Input where the templates are at.
         input_dir= source_filename = os.path.join(os.path.dirname(__file__), 'templates/apache')
-        print self.args
-        from paste.script import pluginlib
+        #Finding directory that has egg info
         egg_info_dir = pluginlib.find_egg_info_dir(os.getcwd())
+        #Name of the module
         plugins= os.path.splitext(os.path.basename(egg_info_dir))[0]
-        print os.path.splitext(os.path.basename(egg_info_dir))[0]
+        #print os.path.splitext(os.path.basename(egg_info_dir))[0]
         dist_name= pluginlib.get_distro(plugins)
+        vars={}
+        #If PKG-INFO exists read it and add it to vars
         if dist_name.has_metadata('PKG-INFO'):
             data=dist_name.get_metadata('PKG-INFO')
             for add_info in pluginlib.parse_lines(data):
-                print add_info
+                (key,value) = add_info.split(':',1)
+                vars[key]=value
+        #Add package names
+        vars['project']=plugins
+        vars['package']=plugins
+        vars['egg']=pluginlib.egg_name(str(dist_name))
         
-        vars = {'project': plugins,
-                'package': plugins,
-                'egg': pluginlib.egg_name(str(dist_name)),
-                }
-
-        print 'var',vars
-        print 'outdir',output_dir
-        copy_dir(input_dir, output_dir, vars, verbosity=5, simulate=False, use_cheetah=True)
-
-        return
-        try:
-            #fileOp = FileOp(source_dir=os.path.join(
-            #    os.path.dirname(__file__), 'templates'))
-            #try:
-            #    print 'args', self.args
-            #    name, directory = fileOp.parse_path_name_args(self.args[0])
-            #except Exception ,e:
-            #    print e
-            #    raise BadCommand('No egg_info directory was found')
-
-            # Check the name isn't the same as the package
-            base_package = FileOp.find_dir('controllers', True)[0]
-            if base_package.lower() == name.lower():
-                raise BadCommand(
-                    'Your controller name should not be the same as '
-                    'the package name %r.' % base_package)
-
-            # validate the name
-            name = name.replace('-', '_')
-            validateName(name)
-            
-            # Setup the controller
-            fullname = os.path.join(directory, name)
-            controller_name = util.class_name_from_module_name(
-                name.split('/')[-1])
-            if not fullname.startswith(os.sep):
-                fullname = os.sep + fullname
-            testname = fullname.replace(os.sep, '_')[1:]
-
-            # set test file name
-            #fullName = os.path.join(directory, name)
-            #if not fullName.startswith(os.sep):
-            #    fullName = os.sep + fullName
-            #testName = fullName.replace(os.sep, '_')[1:]
-
-            # set template vars
-            #modName = name
-            #fullModName = os.path.join(directory, name)
-            #contrClass = util.class_name_from_module_name(name)
-            #modelClass = util.class_name_from_module_name(singularName)
-            #modelTabObj = name + '_table'
-
-            # setup the controller
-            fileOp.template_vars.update(
-                {'name': controller_name,
-                 'fname': os.path.join(directory, name),
-                 'package':base_package,
-                 })
-            fileOp.copy_file(template='apache.wsgi_tmpl',
-                         dest=os.path.join('apache', directory),
-                         filename=name)
-            if not self.options.no_test:
-                fileOp.copy_file(template='test_apache.wsgi_tmpl',
-                             dest=os.path.join('tests', 'functional'),
-                             filename='test_' + testName)
-
-        except BadCommand, e:
-            raise BadCommand('An error occurred. %s' % e)
-        except:
-            msg = str(sys.exc_info()[1])
-            raise BadCommand('An unknown error occurred. %s' % msg)
+        #Copy my template direcotry to destination.
+        copy_dir(input_dir, output_dir, vars, verbosity=1, simulate=False, use_cheetah=True)
 
 
