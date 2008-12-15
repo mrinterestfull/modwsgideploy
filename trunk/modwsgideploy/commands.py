@@ -15,7 +15,6 @@ from paste.script.command import Command, BadCommand
 from paste.script.filemaker import FileOp
 from paste.script.copydir import copy_dir
 
-import pylons.util as util
 
 #Needed to manipulate egg information
 from paste.script import pluginlib
@@ -115,5 +114,7 @@ class ModwsgiCommand(Command):
         
         #Copy my template direcotry to destination.
         copy_dir(input_dir, output_dir, vars, verbosity=1, simulate=False, use_cheetah=True)
-
+        print 'Thank you for using modwsgideploy!'
+        print 'Please read README.txt in apache folder.'
+        print 'Made in Chicago, USA'
 

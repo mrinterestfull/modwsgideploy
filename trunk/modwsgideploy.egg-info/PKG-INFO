@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: modwsgideploy
-Version: 0.2dev
+Version: 0.2betadev
 Summary: Template that helps to deploy via mod_wsgi and apache.
 Home-page: http://lucasmanual.com/mywiki/modwsgideploy
 Author: Lukasz Szybalski

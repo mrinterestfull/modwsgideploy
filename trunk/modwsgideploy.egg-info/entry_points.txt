@@ -1,4 +1,4 @@
 
-        [paste.paster_command]
+        [paste.global_paster_command]
         modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
       

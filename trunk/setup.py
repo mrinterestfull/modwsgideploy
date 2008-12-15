@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.2'
+version = '0.3beta'
 
 setup(name='modwsgideploy',
       version=version,
@@ -18,11 +18,12 @@ Templates builds a wsgi file and apache config file that user puts in apache and
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-        "cheetah>=2.0"  
+        "cheetah>=2.0" ,
+        "pastescript>=1.0", 
         # -*- Extra requirements: -*-
       ],
       entry_points="""
-        [paste.paster_command]
+        [paste.global_paster_command]
         modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
       """,
       )

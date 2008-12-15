@@ -1,5 +1,5 @@
 #Test modwsgi.
-#Hello world test application to make sure modwsgi runs. Uncomment only this sections below to test. Install in appropriate folders and restart apache.
+#Hello world test application to make sure modwsgi runs. Link from you apache file to here to test.
 
 def application(environ, start_response):
     status = '200 OK'
