@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.3beta'
+version = '0.3alpha'
 
 setup(name='modwsgideploy',
       version=version,
