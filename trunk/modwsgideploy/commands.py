@@ -116,5 +116,6 @@ class ModwsgiCommand(Command):
         copy_dir(input_dir, output_dir, vars, verbosity=1, simulate=False, use_cheetah=True)
         print 'Thank you for using modwsgideploy!'
         print 'Please read README.txt in apache folder.'
-        print 'Made in Chicago, USA'
+        print 'http://lucasmanual.com/mywiki/modwsgideploy'
+        print 'Made in Chicago,IL USA'
 
