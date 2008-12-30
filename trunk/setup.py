@@ -5,7 +5,7 @@ version = '0.4.12'
 
 setup(name='modwsgideploy',
       version=version,
-      description="Template that helps to deploy via mod_wsgi and apache.",
+      description="Deploy Turbogears2 or Pylons via apache and modwsgi.",
       long_description="""\
 Templates builds a wsgi file and apache config file that user puts in apache and runs the app in few simple steps.""",
       classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
