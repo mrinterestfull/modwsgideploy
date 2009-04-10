@@ -1,3 +1,4 @@
+MANIFEST.in
 setup.cfg
 setup.py
 modwsgideploy/__init__.py
@@ -10,3 +11,7 @@ modwsgideploy.egg-info/not-zip-safe
 modwsgideploy.egg-info/requires.txt
 modwsgideploy.egg-info/top_level.txt
 modwsgideploy/templates/__init__.py
+modwsgideploy/templates/apache/+package+.wsgi_tmpl
+modwsgideploy/templates/apache/+package+_tmpl
+modwsgideploy/templates/apache/README.txt_tmpl
+modwsgideploy/templates/apache/test.wsgi

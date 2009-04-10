@@ -7,32 +7,30 @@
 \#2. Make sure apache user own the folder.
 \#Debian: chown -R www-data:www-data /usr/local/turbogears/${package}
 
-\#3.[Optional]If using modwsgi with virtualenv uncomment next few lines which will point to your virtualenv setup. 
-\#Make sure root owns the virtualenv folder. Example:(root:root)
-
 import sys
 
-\#Using virtual enviroment. Uncomment next line.
-\#prev_sys_path = list(sys.path)
-
-\#Default location for virtualenv should be '/usr/local/pythonenv/BASELINE'. Create it using:
+\#3. start of virtualenv (enabled by default).
+\#Please comment out until 4 if you don't use virtualenv. 
+\#Make sure root owns the virtualenv folder. Example:(root:root)
+\#Create virtualenv if you didn't create it yet:
 \#mkdir /usr/local/pythonenv
 \#virtualenv --no-site-packages /usr/local/pythonenv/BASELINE
 
+prev_sys_path = list(sys.path)
 
-\#Uncomment next 2 lines:
-\#import site. 
-\#site.addsitedir('/usr/local/pythonenv/BASELINE/lib/python2.5/site-packages')
+import site 
+site.addsitedir('/usr/local/pythonenv/BASELINE/lib/python2.5/site-packages')
 
 \#Move just added item to the front of the python system path. 
 \#Not needed if modwsgi>=3.0. Uncomment next 6 lines.
-\#new_sys_path = []
-\#for item in list(sys.path):
-\#    if item not in prev_sys_path:
-\#        new_sys_path.append(item)
-\#        sys.path.remove(item)
-\#sys.path[:0] = new_sys_path 
+new_sys_path = []
+for item in list(sys.path):
+    if item not in prev_sys_path:
+        new_sys_path.append(item)
+        sys.path.remove(item)
+sys.path[:0] = new_sys_path 
 
+\#End of virtualenv
 
 \#4. Your website file location.
 import os, sys

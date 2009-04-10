@@ -18,11 +18,11 @@ WSGIScriptAlias /${package} /usr/local/turbogears/${package}/apache/${package}.w
 \#Alias /images /usr/local/turbogears/${package}/${package}/public/images
 \#Alias /css /usr/local/turbogears/${package}/${package}/public/css
 \#Alias /javascript /usr/local/turbogears/${package}/${package}/public/javascript
-\#WSGIScriptAlias / /usr/local/turbogears//apache/${package}.wsgi
+\#WSGIScriptAlias / /usr/local/turbogears/apache/${package}.wsgi
 
 \#5. [Optional] Deamon mode with 10 threads and 3 processes. For small to medium website.
-\#WSGIDaemonProcess  threads=10 processes=3
-\#WSGIProcessGroup 
+\#WSGIDaemonProcess ${package} threads=10 processes=3
+\#WSGIProcessGroup ${package}
 \#WSGIScriptAlias / /usr/local/turbogears/${package}/apache/${package}.wsgi
 
 \#6. Directory Permission.
@@ -31,19 +31,15 @@ Order deny,allow
 Allow from all
 </Directory>
 
-
-
 \#7. [Optional] If you want to use Virtualhost apache settings. 
 \#Sample Virtual Host configuration would look like this:
-\#
+
 \#<Directory /usr/local/turbogears/${package}/apache>
 \#    Order allow,deny
 \#    Allow from all
 \#</Directory>
-\#
+
 \#NameVirtualHost *:81
 \#<VirtualHost *:81>
 \#    WSGIScriptAlias / /usr/local/turbogears/${package}/apache/${package}.wsgi
 \#</VirtualHost>
-\#
-

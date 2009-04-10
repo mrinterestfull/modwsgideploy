@@ -1,10 +1,12 @@
-#1. Create production.ini configuration file 
+#Here is a numbered list of what you need to do to deploy you Turbogears2 or Pylons application. Follow 1 through 6. 
+
+#1. Create production.ini configuration file if its not there already. Example: 
 cp development.ini production.ini
-#Edit production.ini and delete the port settings. Default is 80.
+#Edit production.ini and delete the port settings or make sure its set to 80.
 
 #2. Change or check the apache settings file.
 #Edit /usr/local/turbogears/${package}/apache/${package} and make sure it has the necessary apache configurations you need.
-#Copy {$package} apache config file to apache folder.
+#Copy {$package} apache config file to apache folder. Example:
 cp /usr/local/turbogears/${package}/apache/${package} /etc/apache2/sites-available/${package}
 
 #3.Check if permissions are the same as other apache sites usually (root:root)
@@ -19,8 +21,8 @@ ls -l /etc/apache2/sites-available/
 #4.Enable your site.
 a2ensite ${package}
 
-#5. Check if your project has proper permissions, usually apache user. (Example: www-data:www-data). If it doesn't don't forget to change it.
-ls -l /usr/local/turbogears/mainweb/apache/
+#5. Check if your project has proper permissions, usually apache user. (Example: www-data:www-data on Debian).
+ls -l /usr/local/turbogears/${package}/apache/
 #total 16
 #-rw-r--r-- 1 www-data www-data 1077 2008-11-26 22:35 ${package}
 #-rw-r--r-- 1 www-data www-data 2319 2008-11-26 23:25 ${package}.wsgi
