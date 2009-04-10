@@ -1,11 +1,12 @@
-#Here is a numbered list of what you need to do to deploy you Turbogears2 or Pylons application. Follow 1 through 6. 
+#Here is a numbered list of what you need to do to deploy your Turbogears2 or Pylons application. Follow 1 through 6. 
 
 #1. Create production.ini configuration file if its not there already. Example: 
-cp development.ini production.ini
-#Edit production.ini and delete the port settings or make sure its set to 80.
+paster make-config ${package} production.ini
+#Edit production.ini and comment out the port settings, update the url for the production database.
 
 #2. Change or check the apache settings file.
-#Edit /usr/local/turbogears/${package}/apache/${package} and make sure it has the necessary apache configurations you need.
+#Edit /usr/local/turbogears/${package}/apache/${package} and make sure it has the necessary apache configurations you need. Please update any paths if youi are placing your app somwehere other then /usr/local/turbogears/${package}/
+
 #Copy {$package} apache config file to apache folder. Example:
 cp /usr/local/turbogears/${package}/apache/${package} /etc/apache2/sites-available/${package}
 
