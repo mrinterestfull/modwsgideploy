@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: modwsgideploy
-Version: 0.4.17dev
+Version: 0.4.18dev
 Summary: Deploy Turbogears2 or Pylons via apache and modwsgi.
 Home-page: http://lucasmanual.com/mywiki/modwsgideploy
 Author: Lukasz Szybalski
