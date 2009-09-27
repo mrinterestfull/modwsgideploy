@@ -1,6 +1,3 @@
-.. contents::
-   :depth: 3
-
 Deployment using mod_wsgi and apache. Below instructions will tell you how to quickly deploy your turbogears2 app using mod_wsgi.
 
 Install modwsgideploy

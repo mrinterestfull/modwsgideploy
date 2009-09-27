@@ -1,7 +1,7 @@
 Metadata-Version: 1.0
 Name: modwsgideploy
-Version: 0.4.12dev
-Summary: Template that helps to deploy via mod_wsgi and apache.
+Version: 0.4.16dev
+Summary: Deploy Turbogears2 or Pylons via apache and modwsgi.
 Home-page: http://lucasmanual.com/mywiki/modwsgideploy
 Author: Lukasz Szybalski
 Author-email: szybalski@gmail.com
