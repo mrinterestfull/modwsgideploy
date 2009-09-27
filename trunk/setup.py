@@ -1,7 +1,12 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.4.15'
+version = '0.4.16'
+README_FILE = open('README.txt')
+try:
+    longdescription = README_FILE.read()
+finally:
+    README_FILE.close()
 
 setup(name='modwsgideploy',
       version=version,
