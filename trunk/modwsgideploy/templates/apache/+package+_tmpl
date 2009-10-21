@@ -2,7 +2,7 @@
 \#Read README.txt
 \#1. This file is the apache2 config file. It should be added to your apache config folder. If you mounting your app as a site wide package, you can rename the file to something like 002-${package} and put anything else that you want to be available in 001-someapp; When done copy to apache config folder. On Debian copy to /etc/apache2/sites-available/
 \#cp ./apache/${package} /etc/apache2/sites-available/${package}
-\#a2ensite ${pacakge}
+\#a2ensite ${package}
 
 
 \#Default location for tg2 project is /usr/local/turbogears/${package}. That is where you should put your project. This folder should be outside of apache location. Your package should not be installed into python site-package.

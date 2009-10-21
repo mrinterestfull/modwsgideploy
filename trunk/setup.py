@@ -8,7 +8,7 @@ except ImportError:
 
 import sys, os
 
-version = '0.4.19'
+version = '0.4.20'
 
 readme=long_description=open("README.txt").read()
 
