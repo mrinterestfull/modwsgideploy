@@ -50,9 +50,9 @@ def validateName(name):
     return True
 
 class ModwsgiCommand(Command):
-    """Create a modwsgi apache configuration.
+    """Create a modwsgi apache2 configuration.
 
-    The ModwsgiController command will create the standard apache template file.
+    The ModwsgiController command will create the standard apache2 template file.
 
     Example usage::
 
@@ -93,7 +93,7 @@ class ModwsgiCommand(Command):
         #Output directory is current folder unless specified vi output command.
         output_dir = os.path.join(self.options.output_dir, 'apache')
         #Input where the templates are at.
-        input_dir= source_filename = os.path.join(os.path.dirname(__file__), 'templates/apache')
+        input_dir= source_filename = os.path.join(os.path.dirname(__file__), 'templates/apache2')
         #Finding directory that has egg info
         egg_info_dir = pluginlib.find_egg_info_dir(os.getcwd())
         #Name of the module
@@ -111,11 +111,10 @@ class ModwsgiCommand(Command):
         vars['project']=plugins
         vars['package']=plugins
         vars['egg']=pluginlib.egg_name(str(dist_name))
-        
+
         #Copy my template direcotry to destination.
         copy_dir(input_dir, output_dir, vars, verbosity=1, simulate=False, use_cheetah=True)
         print 'Thank you for using modwsgideploy!'
         print 'Please read README.txt in apache folder.'
         print 'http://lucasmanual.com/mywiki/modwsgideploy'
-        print 'Made in Chicago,IL USA'
-
+        print 'Made in Chicago, Illinois USA'

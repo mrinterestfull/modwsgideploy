@@ -1,4 +1,7 @@
-0.8 - 20090111
+0.08 - 20090111
 -- Fix template errors
 -- Made virtualenv deployment a default
 
+0.5.18 - 20170502
+- Convert to Git
+- Update apache2 template and upgrade to latest syntax from modwsgi python3 library that is in Debian

@@ -1,0 +1,105 @@
+Deployment using mod_wsgi and apache. Below instructions will tell you how to quickly deploy your turbogears2 app using mod_wsgi.
+
+Install modwsgideploy
+---------------------
+
+PYPI
+~~~~
+
+You can install modwsgideploy from PyPi::
+
+ easy_install modwsgideploy
+ #or
+ pip install modwsgideploy
+
+Done.
+
+Run modwsgideploy
+------------------
+
+Go into your python application project folder and type in::
+
+ paster modwsgi_deploy
+
+
+Example
+-------
+
+Here is a typical installation, from start to finish on Debian Linux. You might have to use you OS specific commands for installing apache.
+
+The steps are:
+1) Install apache and modwsgi
+2) Setup virtual environment and install you web application written in pyramid,etc
+3) Install modwsgideploy and run the paster command above to generate all the configuration files.
+4) Tweak wsgi/apache settings to fit your needs or use default settings.
+5) Check if everything is running properly.
+
+In this case I will install apache using tools available from my Linux operating system::
+
+ apt-get install apache2
+ apt-get install libapache2-mod-wsgi-py3
+ virtualenv -p python3 --no-site-packages env_py3
+ source env_py3/bin/activate
+ pip install modwsgideploy
+
+ Go into you app and run modwsgi_deploy command::
+
+ cd myapp
+ paster modwsgi_deploy
+
+You should see an apache folder like this inside 'myapp'::
+
+ myapp
+ |-- apache
+ |   |-- README.txt
+ |   |-- myapp.conf
+ |   |-- myapp.wsgi
+ |   `-- test.wsgi
+
+
+1. Read the README.txt
+2. myapp.conf is a apache2 configuration file that you need to copy into your apache2 configuration folder after all the settings are set.
+3. myapp.wsgi is an modwsgi script that is called from myapp apache2 file
+4. test.wsgi is a test script that you can call to see if you modwsgi was properly installed and working.
+
+Edit myapp.conf file to change any paths and/or apache configurations. Then copy to apache2 folder.
+
+On Debian Linux operating system I copy this file to::
+
+ cp ./apache2/myapp.conf /etc/apache2/sites-available/
+
+Enable the website. On my OS its::
+
+ a2ensite myapp.conf
+ /etc/init.d/apache restart
+
+Done
+
+Feedback
+--------
+
+If you have a useful sample wsgi script or apache config that you would like to share, please sent it szybalski@gmail.com
+
+
+
+Source Install
+~~~~~~~~~~~~~~
+
+You also have a choice of getting the source and installing it.
+You should use this in a virtual environment, for example::
+
+ virtalenv -p python3 --no-site-packages env_py3
+ source env_py3/bin/activate
+
+Install [:git:] if its not already installed on your system::
+
+ apt-get install git
+
+Branch out the code. This will pull all the revision history. If you want just the recent one use checkout::
+
+ git clone https://code.launchpad.net/~szybalski/modwsgideploy/modwsgideploy
+
+Install it::
+
+ cd modwsgideploy/modwsgideploy
+ python setup.py develop

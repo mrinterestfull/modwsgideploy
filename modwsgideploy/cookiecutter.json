@@ -1,0 +1,8 @@
+{
+  "folder_name": "apache2",
+  "command_line_interface": ["Pyramid", "Django","Trac"],
+  "use_virtualhost": "n",
+  "use_subdomain":"n",
+  "if_y_to_subdomain_provide_name":"myapp.example.com",
+  "file_types": ["png","s","a","bbb"]
+}
