@@ -4,8 +4,8 @@
   "domain_name": "example.com",
   "command_line_interface": ["Pyramid", "Django","Trac"],
   "use_virtualhost": "n",
-  "Q1":"Will you be hosting your site as a subdomain. {{cookiecutter.app_name}}.example.com/? [Press Enter]",
+  "Q1":"Will you be hosting your site as a subdomain. {{cookiecutter.app_name}}.{{cookiecutter.domain_name}}/? [Press Enter]",
   "use_subdomain":"n",
-  "Q2":"Next Question will ask if you want to mount your website at address / or /myapp or /myawsomeapp. If your application is not hosting main site at / then please indicate where you want it hosted.[Press Enter]",
-  "mount_point":"/myapp"
+  "Q2":"Next Question will ask if you want to mount your website at address {{cookiecutter.domain_name}}/ or {{cookiecutter.domain_name}}/myapp or /{{cookiecutter.domain_name}}/myawsomeapp. If your application is not hosting main site at / then please indicate where you want it hosted.[Press Enter]",
+  "mount_point":"/{{cookiecutter.app_name}}"
 }
