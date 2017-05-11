@@ -1,11 +1,11 @@
 {
   "folder_name": "apache2",
-  "app_name": "myapp",
+  "package_name": "myapp",
   "domain_name": "example.com",
-  "command_line_interface": ["Pyramid", "Django","Trac"],
+  "framework_to_deploy": ["Pyramid", "Django","Trac"],
   "use_virtualhost": "n",
-  "Q1":"Will you be hosting your site as a subdomain. {{cookiecutter.app_name}}.{{cookiecutter.domain_name}}/? [Press Enter]",
+  "Q1":"Hosting as a subdomain? {{cookiecutter.package_name}}.{{cookiecutter.domain_name}}/ [Press Enter]",
   "use_subdomain":"n",
-  "Q2":"Next Question will ask if you want to mount your website at address {{cookiecutter.domain_name}}/ or {{cookiecutter.domain_name}}/myapp or /{{cookiecutter.domain_name}}/myawsomeapp. If your application is not hosting main site at / then please indicate where you want it hosted.[Press Enter]",
-  "mount_point":"/{{cookiecutter.app_name}}"
+  "Q2":"Mount Point?: {{cookiecutter.domain_name}}/ or {{cookiecutter.domain_name}}/{{cookiecutter.package_name}} or {{cookiecutter.domain_name}}/myawsome{{cookiecutter.package_name}} [Press Enter]",
+  "mount_point":"/{{cookiecutter.package_name}}"
 }

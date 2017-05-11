@@ -1,4 +1,3 @@
+[console_scripts]
+hello = modwsgideploy:say_hello
 
-        [paste.global_paster_command]
-        modwsgi_deploy = modwsgideploy.commands:ModwsgiCommand
-    

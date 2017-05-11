@@ -10,7 +10,7 @@ import sys, os
 
 version = '0.5.18'
 
-readme=long_description=open("README.txt").read()
+readme=long_description=open("README.rst").read()
 
 setup(
     name='modwsgideploy',

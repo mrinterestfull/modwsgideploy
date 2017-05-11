@@ -1,5 +1,5 @@
 MANIFEST.in
-README.txt
+README.rst
 setup.cfg
 setup.py
 modwsgideploy/__init__.py
@@ -11,8 +11,3 @@ modwsgideploy.egg-info/entry_points.txt
 modwsgideploy.egg-info/not-zip-safe
 modwsgideploy.egg-info/requires.txt
 modwsgideploy.egg-info/top_level.txt
-modwsgideploy/templates/__init__.py
-modwsgideploy/templates/apache2/+package+.wsgi_tmpl
-modwsgideploy/templates/apache2/+package+_tmpl
-modwsgideploy/templates/apache2/README.txt_tmpl
-modwsgideploy/templates/apache2/test.wsgi

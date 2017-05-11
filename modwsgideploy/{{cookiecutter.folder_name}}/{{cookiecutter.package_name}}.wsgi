@@ -1,9 +1,13 @@
-\#modwsgi script for $package
+#modwsgideploy script for {{cookiecutter.package_name}}
 
-\#1.Point to this script in your apache config file.
-\#Default location for all apps is:
-\#Debian:  /usr/local/turbogears/${package}
+#Default location for all apps is usually:
 
+#Debian:  /usr/local/turbogears/${package}
+{{cookiecutter.workfolder}}
+{% if workfolder  %}
+ggggg
+{%endif%}
+{{'{{'}}
 \#2. Make sure apache user own the folder.
 \#Debian: chown -R www-data:www-data /usr/local/turbogears/${package}
 
