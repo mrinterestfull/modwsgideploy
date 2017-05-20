@@ -2,19 +2,19 @@
 
 #Default location for all apps is usually:
 
-#Debian:  /usr/local/turbogears/${package}
-{{cookiecutter.workfolder}}
-{% if workfolder  %}
+#Debian:  /usr/local/turbogears/${package_name}
+
+{% if true  %}
 ggggg
 {%endif%}
 {{'{{'}}
 \#2. Make sure apache user own the folder.
-\#Debian: chown -R www-data:www-data /usr/local/turbogears/${package}
+\#Debian: chown -R www-data:www-data /usr/local/turbogears/${package_name}
 
 import sys
 
 \#3. start of virtualenv (enabled by default).
-\#Please comment out until 4 if you don't use virtualenv. 
+\#Please comment out until 4 if you don't use virtualenv.
 \#Make sure root owns the virtualenv folder. Example:(root:root)
 \#Create virtualenv if you didn't create it yet:
 \#mkdir /usr/local/pythonenv
@@ -22,34 +22,34 @@ import sys
 
 prev_sys_path = list(sys.path)
 
-import site 
+import site
 site.addsitedir('/usr/local/pythonenv/BASELINE/lib/python2.5/site-packages')
 
-\#Move just added item to the front of the python system path. 
+\#Move just added item to the front of the python system path.
 \#Not needed if modwsgi>=3.0. Uncomment next 6 lines.
 new_sys_path = []
 for item in list(sys.path):
     if item not in prev_sys_path:
         new_sys_path.append(item)
         sys.path.remove(item)
-sys.path[:0] = new_sys_path 
+sys.path[:0] = new_sys_path
 
 \#End of virtualenv
 
 \#4. Your website file location.
 import os, sys
-sys.path.append('/usr/local/turbogears/${package}')
+sys.path.append('/usr/local/turbogears/${package_name}')
 
 \#5. Set the environment variable PYTHON_EGG_CACHE to an appropriate directory where the Apache user has write permission and into which it can unpack egg files.
-os.environ['PYTHON_EGG_CACHE'] = '/usr/local/turbogears/${package}/python-eggs'
+os.environ['PYTHON_EGG_CACHE'] = '/usr/local/turbogears/${package_name}/python-eggs'
 
 \#6.[Optional]If you want to enable logging you need to initialize logging. You also need to setup logger handlers in your production.ini. When done uncomment next two lines.
 \#from paste.script.util.logging_config import fileConfig
-\#fileConfig('/usr/local/turbogears/${package}/production.ini')
+\#fileConfig('/usr/local/turbogears/${package_name}/production.ini')
 
 \#7. Load your application production.ini file.
 from paste.deploy import loadapp
-application = loadapp('config:/usr/local/turbogears/${package}/production.ini')
+application = loadapp('config:/usr/local/turbogears/${package_name}/production.ini')
 
 
-\#8.[Optional] If you want to test modwsgi only, uncomment section 3 in your /usr/local/turbogears/${package}/apache/${package}
+\#8.[Optional] If you want to test modwsgi only, uncomment section 3 in your /usr/local/turbogears/${package_name}/apache/${package_name}

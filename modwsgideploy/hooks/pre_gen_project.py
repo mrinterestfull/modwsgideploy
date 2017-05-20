@@ -16,7 +16,7 @@ except NameError:
         print(workfolder)
     else:
         print(choice2)
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
 
 if choice2=='':
     print(workfolder)
@@ -35,7 +35,16 @@ Context["cookiecutter"]= {
 Context["workfolder"]= 'ggggg'
 context={}
 context["workfolder"]= 'ggggg'
-extra_context={'project_name2': 'TheGreatest'}
+extra_context={'workfolder': 'TheGreatest'}
+#from cookiecutter.main import cookiecutter
+
+from datetime import datetime
+import os
+print(os.environ)
+print('sssss')
+print({{cookiecutter}})
+print('preeee')
+
 #from cookiecutter.main import cookiecutter
 #cookiecutter(
 #            'modwsgideploy',
