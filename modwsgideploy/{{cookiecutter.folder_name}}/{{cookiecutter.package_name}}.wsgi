@@ -1,15 +1,11 @@
-#modwsgideploy script for {{cookiecutter.package_name}}
+#Created by modwsgideploy script for {{cookiecutter.package_name}}
 
-#Default location for all apps is usually:
 
 #Debian:  /usr/local/turbogears/${package_name}
 
-{% if true  %}
-ggggg
-{%endif%}
-{{'{{'}}
-\#2. Make sure apache user own the folder.
-\#Debian: chown -R www-data:www-data /usr/local/turbogears/${package_name}
+# Make sure apache2 user owns ${package_name}.wsgi. This is the only file it needs to own.
+# The rest of the folders and your source code can be owned by other user.
+# Debian: chown -R www-data:www-data ${workfolder}/${package_name}.wsgi
 
 import sys
 
