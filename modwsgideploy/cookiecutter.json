@@ -2,10 +2,11 @@
   "folder_name": "apache2",
   "package_name": "myapp",
   "domain_name": "example.com",
-  "framework_to_deploy": ["Pyramid", "Django","Trac"],
-  "use_virtualhost": "n",
-  "Q1":"Hosting as a subdomain? {{cookiecutter.package_name}}.{{cookiecutter.domain_name}}/ [Press Enter]",
-  "use_subdomain":"n",
-  "Q2":"Mount Point?: {{cookiecutter.domain_name}}/ or {{cookiecutter.domain_name}}/{{cookiecutter.package_name}} or {{cookiecutter.domain_name}}/myawsome{{cookiecutter.package_name}} [Press Enter]",
-  "mount_point":"/{{cookiecutter.package_name}}"
+  "framework_to_deploy": ["pyramid", "django","trac"],
+  "host_as_subdomain":"{{cookiecutter.package_name}}.{{cookiecutter.domain_name}} [n]/y",
+  "use_virtualhost": "[y]/n",
+  "Q1":"Which Mount Point: {{cookiecutter.domain_name}}/ or {{cookiecutter.domain_name}}/{{cookiecutter.package_name}} [Press Enter]",
+  "mount_point":"/{{cookiecutter.package_name}}",
+  "Q2":"What is the path to your virtual environment? Example: /usr/local/{{cookiecutter.framework_to_deploy}}/env_py3 [Press Enter]",
+  "virtual_environment_path":"/usr/local/{{cookiecutter.framework_to_deploy}}/env_py3"
 }

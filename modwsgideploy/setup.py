@@ -8,7 +8,7 @@ except ImportError:
 
 import sys, os
 
-version = '0.5.18'
+version = '3.5.21'
 
 readme=long_description=open("README.rst").read()
 
@@ -30,6 +30,7 @@ setup(
         #"cheetah>=2.0" ,
         #"pastescript>=2.0",#Moving to cookiecutter
         "cookiecutter>=1.5",
+        "mako"
         # -*- Extra requirements: -*-
     ],
     entry_points={
