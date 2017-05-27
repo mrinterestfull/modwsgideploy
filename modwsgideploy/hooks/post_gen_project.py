@@ -101,6 +101,6 @@ save_template(workfolder,file_name,context)
 file_name= 'README.txt'
 save_template(workfolder,file_name,context)
 
-print('\nThank you for deploying with modwsgideploy')
-print('\nBuild in Chicago, IL United States of America')
-print('''\nIf you have an idea that will make other peoples' life better and you need a partner. Reach out to us: parnter@dataassistant.co''')
+#print('\nThank you for deploying with modwsgideploy')
+#print('\nBuild in Chicago, IL United States of America')
+#print('''\nIf you have an idea that will make other peoples' life better and you need a partner. Reach out to us: parnter@dataassistant.co''')

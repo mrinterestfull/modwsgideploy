@@ -21,7 +21,6 @@ test_requirements = [
 setup(
     name='modwsgideploy',
     version=version,
-    classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords='apache2 mod_wsgi turbogears pyramid deploy script',
     author='Lukasz Szybalski',
     author_email='szybalski@gmail.com',
@@ -50,8 +49,8 @@ setup(
              'modwsgideploy=modwsgideploy.cli:main'
             #'hello=modwsgideploy:say_hello'
         ],
-    }
-classifiers=[
+    },
+    classifiers=[ # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
@@ -66,7 +65,6 @@ classifiers=[
     ],
     test_suite='tests',
     tests_require=test_requirements
-)
 
     #"""
     #    [paste.global_paster_command]
