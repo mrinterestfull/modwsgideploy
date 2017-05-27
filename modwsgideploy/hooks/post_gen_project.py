@@ -90,6 +90,8 @@ def save_template(workfolder=None,file_name=None,context=None):
     f.write(newtemplate)
     f.close()
 
+print(context['use_virtualhost'])
+print(context['host_as_subdomain'])
 file_name= context['package_name']+'.wsgi'
 save_template(workfolder,file_name,context)
 

@@ -1,3 +1,23 @@
+=============
+modwsgideploy
+=============
+
+
+.. image:: https://img.shields.io/pypi/v/modwsgideploy.svg
+        :target: https://pypi.python.org/pypi/modwsgideploy
+
+.. image:: https://img.shields.io/travis/lszyba1/modwsgideploy.svg
+        :target: https://travis-ci.org/lszyba1/modwsgideploy
+
+.. image:: https://readthedocs.org/projects/modwsgideploy/badge/?version=latest
+        :target: https://modwsgideploy.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+.. image:: https://pyup.io/repos/github/lszyba1/modwsgideploy/shield.svg
+        :target: https://pyup.io/repos/github/lszyba1/modwsgideploy/
+        :alt: Updates
+
+
 Deployment using mod_wsgi and apache. Below instructions will tell you how to quickly deploy your turbogears2 app using mod_wsgi.
 
 Install modwsgideploy
@@ -8,8 +28,6 @@ PYPI
 
 You can install modwsgideploy from PyPi::
 
- easy_install modwsgideploy
- #or
  pip install modwsgideploy
 
 Done.
@@ -19,7 +37,7 @@ Run modwsgideploy
 
 Go into your python application project folder and type in::
 
- paster modwsgi_deploy
+ modwsgideploy
 
 
 Example
@@ -30,27 +48,28 @@ Here is a typical installation, from start to finish on Debian Linux. You might 
 The steps are:
 1) Install apache and modwsgi
 2) Setup virtual environment and install you web application written in pyramid,etc
-3) Install modwsgideploy and run the paster command above to generate all the configuration files.
-4) Tweak wsgi/apache settings to fit your needs or use default settings.
+3) Install modwsgideploy and run the modwsgideploy command above to generate all the configuration files.
+4) Tweak apache/ .conf and .wsgi settings to fit your needs or use default settings.
 5) Check if everything is running properly.
 
 In this case I will install apache using tools available from my Linux operating system::
 
  apt-get install apache2
  apt-get install libapache2-mod-wsgi-py3
- virtualenv -p python3 --no-site-packages env_py3
- source env_py3/bin/activate
+ virtualenv -p python3 --no-site-packages /usr/local/pyramid/env_py3
+ source /usr/local/pyramid/env_py3/bin/activate
  pip install modwsgideploy
 
- Go into you app and run modwsgi_deploy command::
+ Go into you app and run modwsgideploy command::
 
  cd myapp
- paster modwsgi_deploy
+ modwsgideploy
 
-You should see an apache folder like this inside 'myapp'::
+You should see an apache2 folder like this inside 'myapp'::
 
  myapp
- |-- apache
+ |-- apache2
+ |   |-- .python-eggs
  |   |-- README.txt
  |   |-- myapp.conf
  |   |-- myapp.wsgi
@@ -62,7 +81,7 @@ You should see an apache folder like this inside 'myapp'::
 3. myapp.wsgi is an modwsgi script that is called from myapp apache2 file
 4. test.wsgi is a test script that you can call to see if you modwsgi was properly installed and working.
 
-Edit myapp.conf file to change any paths and/or apache configurations. Then copy to apache2 folder.
+Edit myapp.conf file to change any paths and/or apache configurations. Then copy to apache2 folder in /etc/apache2/sites-available/.
 
 On Debian Linux operating system I copy this file to::
 
@@ -79,27 +98,3 @@ Feedback
 --------
 
 If you have a useful sample wsgi script or apache config that you would like to share, please sent it szybalski@gmail.com
-
-
-
-Source Install
-~~~~~~~~~~~~~~
-
-You also have a choice of getting the source and installing it.
-You should use this in a virtual environment, for example::
-
- virtalenv -p python3 --no-site-packages env_py3
- source env_py3/bin/activate
-
-Install [:git:] if its not already installed on your system::
-
- apt-get install git
-
-Branch out the code. This will pull all the revision history. If you want just the recent one use checkout::
-
- git clone https://code.launchpad.net/~szybalski/modwsgideploy/modwsgideploy
-
-Install it::
-
- cd modwsgideploy/modwsgideploy
- python setup.py develop
