@@ -18,6 +18,3 @@ from pyramid.paster import get_app, setup_logging
 ini_path = '${package_folder}/${package_name}/${deployment_prod_or_dev}'
 setup_logging(ini_path)
 application = get_app(ini_path, 'main')
-
-
-#[Optional] If you want to test modwsgi only, uncomment section 3 in your ${workfolder}/${package_name}.conf

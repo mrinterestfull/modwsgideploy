@@ -6,9 +6,11 @@ context={{cookiecutter}}
 
 def ask_more_questions(question=None):
     try:
-        output = input(question)
-    except NameError:
         output = raw_input(question)
+        #output = input(question)
+    except NameError:
+        output = input(question)
+        #output = raw_input(question)
     return output
 #import pdb; pdb.set_trace()
 
@@ -17,7 +19,7 @@ workfolder=os.getcwd()
 package_folder=os.path.abspath(os.path.join(workfolder,'../'))
 
 #ask about workfolder
-ask_workfolder=ask_more_questions('package_folder ['+str(package_folder) +']:')
+ask_workfolder=ask_more_questions(question='package_folder ['+str(package_folder) +']:')
 if not ask_workfolder=='':
     package_folder=ask_workfolder
 context['package_folder']=package_folder
@@ -26,6 +28,7 @@ context['package_folder']=package_folder
 context['wsgi_folder']=workfolder
 context['workfolder']=workfolder
 context['user_name']=os.getlogin()
+context['static']=os.path.join('/',context['mount_point'],'static')
 
 #ask about workfolder
 # ask_virtualenv=ask_more_questions('Virtual environment path: /envProject Folder ['+str(workfolder) +']:')
@@ -41,7 +44,7 @@ context['user_name']=os.getlogin()
 
 #pyramid
 if context['framework_to_deploy']=='pyramid':
-    deployment_prod_or_dev=ask_more_questions('deployment_prod_or_dev: [development.ini] or production.ini :')
+    deployment_prod_or_dev=ask_more_questions(question='deployment_prod_or_dev: [development.ini] or production.ini :')
     context['deployment_prod_or_dev']=(deployment_prod_or_dev or 'development.ini')
 #print(context['framework_to_deploy'])
 
@@ -67,7 +70,7 @@ mylookup = TemplateLookup(directories=[workfolder],strict_undefined=True)
 
 def serve_template(templatename, **kwargs):
         mytemplate2 = mylookup.get_template(templatename)
-        print('Rendering: ' + templatename)
+        #print('Rendering: ' + templatename)
         #print(mytemplate2.render(**kwargs))
         return mytemplate2.render(**kwargs)
 
@@ -90,8 +93,8 @@ def save_template(workfolder=None,file_name=None,context=None):
     f.write(newtemplate)
     f.close()
 
-print(context['use_virtualhost'])
-print(context['host_as_subdomain'])
+#print(context['use_virtualhost'])
+#print(context['host_as_subdomain'])
 file_name= context['package_name']+'.wsgi'
 save_template(workfolder,file_name,context)
 
