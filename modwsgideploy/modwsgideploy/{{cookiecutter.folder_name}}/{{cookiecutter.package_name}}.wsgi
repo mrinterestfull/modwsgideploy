@@ -6,7 +6,7 @@
 # Make sure apache2 user owns ${package_name}.wsgi and can write to ${workfolder}/.python-eggs.
 # This are the only two file it needs to own.
 # The rest of the folders and your source code can be owned by other user.
-# Debian: chown -R www-data:www-data ${workfolder}/${package_name}.wsgi
+# Debian: chown www-data:www-data ${workfolder}/${package_name}.wsgi
 # Debian: chown -R www-data:www-data '${workfolder}/.python-eggs'
 
 
