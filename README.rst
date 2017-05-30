@@ -97,4 +97,9 @@ Done
 Feedback
 --------
 
-If you have a useful sample wsgi script or apache config that you would like to share, please sent it szybalski@gmail.com
+If you have a useful sample wsgi script or apache config that you would like to share, please sent it https://gitter.im/dataassistant-co/modwsgideploy
+
+Help
+----
+
+If you need help or would like to discuss: Go To: https://gitter.im/dataassistant-co/modwsgideploy
