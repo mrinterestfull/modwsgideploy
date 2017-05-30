@@ -16,6 +16,8 @@ modwsgideploy
 .. image:: https://pyup.io/repos/github/lszyba1/modwsgideploy/shield.svg
         :target: https://pyup.io/repos/github/lszyba1/modwsgideploy/
         :alt: Updates
+.. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg   
+        :target: https://gitter.im/dataassistant-co/modwsgideploy
 
 
 Deployment using mod_wsgi and apache. Below instructions will tell you how to quickly deploy your pyramid app using libapache2-mod-wsgi-py3.
