@@ -18,7 +18,7 @@ modwsgideploy
         :alt: Updates
 
 
-Deployment using mod_wsgi and apache. Below instructions will tell you how to quickly deploy your turbogears2 app using mod_wsgi.
+Deployment using mod_wsgi and apache. Below instructions will tell you how to quickly deploy your pyramid app using libapache2-mod-wsgi-py3.
 
 Install modwsgideploy
 ---------------------
