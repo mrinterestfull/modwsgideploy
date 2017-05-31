@@ -120,20 +120,20 @@ Change directory into your newly created folder.
     cd {{cookiecutter.folder_name}}
 
 Copy the {{cookiecutter.package_name}}.conf to Apache2 sites-available folder (Debian/Ubuntu).
-    cp {{cookiecutter.package_name}}.conf /etc/apache2/sites-available/
+    sudo cp {{cookiecutter.package_name}}.conf /etc/apache2/sites-available/
 
 Enable the new apache2 site
-    a2ensite {{cookiecutter.package_name}}
+    sudo a2ensite {{cookiecutter.package_name}}
 
 You can change the owner of the wsgi and .python-eggs folder to apache owner.
-    chown www-data:www-data {{cookiecutter.package_name}}.wsgi
-    chown www-data:www-data .python-eggs
+    sudo chown www-data:www-data {{cookiecutter.package_name}}.wsgi
+    sudo chown www-data:www-data .python-eggs
 
 Reload Apache2:
-    services apache2 reload
+    sudo service apache2 reload
 
 Watch the error log and go visit your site.
-    tail -f /var/log/apache2/error.log   #(CTRL +c to get out)
+    sudo tail -f /var/log/apache2/error.log   #(CTRL +c to get out)
 
 Run your project at full speed.
 ''')
