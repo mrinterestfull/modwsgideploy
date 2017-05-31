@@ -15,6 +15,6 @@ import os
 os.environ['PYTHON_EGG_CACHE'] = '${workfolder}/.python-eggs'
 
 from pyramid.paster import get_app, setup_logging
-ini_path = '${package_folder}/${package_name}/${deployment_prod_or_dev}'
+ini_path = '${package_folder}/${deployment_prod_or_dev}'
 setup_logging(ini_path)
 application = get_app(ini_path, 'main')
