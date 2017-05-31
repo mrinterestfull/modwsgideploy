@@ -107,3 +107,33 @@ save_template(workfolder,file_name,context)
 #print('\nThank you for deploying with modwsgideploy')
 #print('\nBuild in Chicago, IL United States of America')
 #print('''\nIf you have an idea that will make other peoples' life better and you need a partner. Reach out to us: parnter@dataassistant.co''')
+
+print('''
+===============================================================================
+Documentation:          http://lucasmanual.com/mywiki/modwsgideploy
+Mod-wsgi Mailing List:  https://groups.google.com/forum/#!forum/modwsgi
+Modwsgideploy Chat:  https://gitter.im/dataassistant-co/modwsgideploy
+Welcome to modwsgideploy.  Build a web that make other people's life better.
+===============================================================================
+
+Change directory into your newly created folder.
+    cd {{cookiecutter.folder_name}}
+
+Copy the {{cookiecutter.package_name}}.conf to Apache2 sites-available folder (Debian/Ubuntu).
+    cp {{cookiecutter.package_name}}.conf /etc/apache2/sites-available/
+
+Enable the new apache2 site
+    a2ensite {{cookiecutter.package_name}}
+
+You can change the owner of the wsgi and .python-eggs folder to apache owner.
+    chown www-data:www-data {{cookiecutter.package_name}}.wsgi
+    chown www-data:www-data .python-eggs
+
+Reload Apache2:
+    services apache2 reload
+
+Watch the error log and go visit your site.
+    tail -f /var/log/apache2/error.log   #(CTRL +c to get out)
+
+Run your project at full speed.
+''')
