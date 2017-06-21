@@ -25,7 +25,6 @@ application = get_app(ini_path, 'main')
 
 % if framework_to_deploy=='trac':
 #===================WSGI File for trac====================================
-#os.environ['TRAC_ENV'] = '/home/trac/trac'
 os.environ['PKG_RESOURCES_CACHE_ZIP_MANIFEST'] = '1'
 
 import trac.web.main

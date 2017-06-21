@@ -8,7 +8,6 @@ except ImportError:
 
 import sys, os
 
-version = '3.5.25'
 
 readme=long_description=open("README.rst").read()
 
@@ -36,7 +35,7 @@ def add_to_package_data(pkg, roots):
 
 setup(
     name='modwsgideploy',
-    version=version,
+    version='3.5.25',
     keywords='apache2 mod_wsgi turbogears pyramid deploy script',
     author='Lukasz Szybalski',
     author_email='szybalski@gmail.com',

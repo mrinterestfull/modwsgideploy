@@ -8,3 +8,4 @@ recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
 recursive-include modwsgideploy *.py *.wsgi *.conf *.txt *.json .keep
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
+include LOCAL-VERSION
