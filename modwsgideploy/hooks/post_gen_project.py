@@ -46,6 +46,13 @@ context['static']=os.path.join('/',context['mount_point'],'static')
 if context['framework_to_deploy']=='pyramid':
     deployment_prod_or_dev=ask_more_questions(question='deployment_prod_or_dev: [development.ini] or production.ini :')
     context['deployment_prod_or_dev']=(deployment_prod_or_dev or 'development.ini')
+    context['static']=os.path.join('/',context['mount_point'],'static')
+if context['framework_to_deploy']=='trac':
+    trac_auth_path=ask_more_questions(question='Basic Auth file location: ['+os.path.join(context['workfolder'],'.htpasswrd')+']:')
+    context['trac_auth_path']=(trac_auth_path or os.path.join(context['workfolder'],'.htpasswrd'))
+    context['trac_login']=os.path.join('/',context['mount_point'],'login')
+if context['framework_to_deploy']=='django':
+    pass
 #print(context['framework_to_deploy'])
 
 
@@ -66,7 +73,12 @@ import os
 workfolder=os.getcwd()
 
 #mylookup = TemplateLookup(directories=[workfolder], module_directory='/tmp/mako_modules')
-mylookup = TemplateLookup(directories=[workfolder],strict_undefined=True)
+#mylookup = TemplateLookup(directories=[workfolder],strict_undefined=True)
+#While it was usefull during programming to know each value is missing, its becoming hard to use strict_undefined=True
+#Since for example when you pick trac, some variables are no longer available, hence we are getting keyErrors inside a pyramid code.
+#To resolved the missing params that are specific to each framework, we need to use strict_undefined=False
+mylookup = TemplateLookup(directories=[workfolder],strict_undefined=False)
+
 
 def serve_template(templatename, **kwargs):
         mytemplate2 = mylookup.get_template(templatename)
@@ -97,7 +109,7 @@ def save_template(workfolder=None,file_name=None,context=None):
 #print(context['host_as_subdomain'])
 file_name= context['package_name']+'.wsgi'
 save_template(workfolder,file_name,context)
-
+print(context)
 file_name= context['package_name']+'.conf'
 save_template(workfolder,file_name,context)
 

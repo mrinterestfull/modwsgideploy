@@ -70,7 +70,7 @@ with possible performance. Don't forget to adjust # of threads, and/or increase 
 
 
 #Left over from prior version. No longer needed and depreciated. (DONT USE)
-#############################
+########### (DONT USE) ##################
 prev_sys_path = list(sys.path)
 
 import site

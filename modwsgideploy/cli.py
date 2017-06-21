@@ -15,7 +15,7 @@ def main(args=None):
     cookiecutter(package_path)
     click.echo("\nThank you for deploying with modwsgideploy"
                "\nBuild in Chicago, IL, USA")
-    click.echo('''\nIf you have an idea that will make other people's life better \nand you need a partner.\n Reach out to us: parnter@DataAssistant.CO\n''')
+    click.echo('''\nIf you have an idea that will make other people's life better \nand you need a partner. Reach out to us: partner@DataAssistant.CO\n''')
 
 if __name__ == "__main__":
     main()

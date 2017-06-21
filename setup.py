@@ -8,7 +8,7 @@ except ImportError:
 
 import sys, os
 
-version = '3.5.21'
+version = '3.5.25'
 
 readme=long_description=open("README.rst").read()
 
