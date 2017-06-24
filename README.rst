@@ -77,6 +77,7 @@ You should see an apache2 folder like this inside 'myapp'::
  |   |-- myapp.wsgi
  |   `-- test.wsgi
 
+.. image:: https://github.com/lszyba1/modwsgideploy/blob/master/docs/gif/tty.gif
 
 1. Read the README.txt
 2. myapp.conf is a apache2 configuration file that you need to copy into your apache2 configuration folder after all the settings are set.
