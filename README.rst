@@ -112,12 +112,12 @@ If you need help or would like to discuss: Go To: https://gitter.im/dataassistan
 Release Notes
 -------------
 3.18.19
-* Allow to change the subdomain name vs project name
-* Fix bug that might cause apache2 error: Name duplicates previous WSGI daemon definition. bug#1_.
+ * Allow to change the subdomain name vs project name
+ * Fix bug that might cause apache2 error: Name duplicates previous WSGI daemon definition. bug#1_.
   .. _bug#1: https://github.com/lszyba1/modwsgideploy/issues/1
 
 3.5.25
-* Python3 Support
-* Upgrade to new subsystem. Use cookiecutter
-* Use post_gen_project.py to add additional functionality.
-* ask_more_questions(question=None)
+ * Python3 Support
+ * Upgrade to new subsystem. Use cookiecutter
+ * Use post_gen_project.py to add additional functionality.
+ * ask_more_questions(question=None)
