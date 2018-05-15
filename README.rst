@@ -16,7 +16,7 @@ modwsgideploy
 .. image:: https://pyup.io/repos/github/lszyba1/modwsgideploy/shield.svg
         :target: https://pyup.io/repos/github/lszyba1/modwsgideploy/
         :alt: Updates
-.. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg   
+.. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg
         :target: https://gitter.im/dataassistant-co/modwsgideploy
 
 
@@ -77,7 +77,8 @@ You should see an apache2 folder like this inside 'myapp'::
  |   |-- myapp.wsgi
  |   `-- test.wsgi
 
-.. image:: https://github.com/lszyba1/modwsgideploy/blob/master/docs/gif/tty.gif
+.. image:: https://raw.githubusercontent.com/lszyba1/modwsgideploy/master/docs/gif/tty.gif
+        :target: https://github.com/lszyba1/modwsgideploy
 
 1. Read the README.txt
 2. myapp.conf is a apache2 configuration file that you need to copy into your apache2 configuration folder after all the settings are set.
@@ -106,3 +107,17 @@ Help
 ----
 
 If you need help or would like to discuss: Go To: https://gitter.im/dataassistant-co/modwsgideploy
+
+
+Release Notes
+-------------
+3.18.19
+* Allow to change the subdomain name vs project name
+* Fix bug that might cause apache2 error: Name duplicates previous WSGI daemon definition. bug#1_.
+  .. _bug#1: https://github.com/lszyba1/modwsgideploy/issues/1
+
+3.5.25
+* Python3 Support
+* Upgrade to new subsystem. Use cookiecutter
+* Use post_gen_project.py to add additional functionality.
+* ask_more_questions(question=None)

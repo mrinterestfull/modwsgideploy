@@ -35,8 +35,8 @@ def add_to_package_data(pkg, roots):
 
 setup(
     name='modwsgideploy',
-    version='3.5.25',
-    keywords='apache2 mod_wsgi turbogears pyramid deploy script',
+    version='3.18.20',
+    keywords='apache2 modwsgi/libapache2-mod-wsgi-py3 pyramid deploy script',
     author='Lukasz Szybalski',
     author_email='szybalski@gmail.com',
     url='http://lucasmanual.com/mywiki/modwsgideploy',
@@ -79,9 +79,6 @@ setup(
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
     tests_require=test_requirements
