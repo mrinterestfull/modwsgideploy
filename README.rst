@@ -114,8 +114,9 @@ Release Notes
 
 3.18.19
  * Allow to change the subdomain name vs project name
- * Fix bug that might cause apache2 error: Name duplicates previous WSGI daemon definition. bug#1_.
-    .. _bug#1: https://github.com/lszyba1/modwsgideploy/issues/1
+ * Fix bug that might cause apache2 error: Name duplicates previous WSGI daemon definition. `bug#1`_.
+
+  .. _bug#1: https://github.com/lszyba1/modwsgideploy/issues/1
 
 3.5.25
  * Python3 Support
