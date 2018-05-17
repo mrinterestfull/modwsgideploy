@@ -42,14 +42,29 @@ context['static']=os.path.join('/',context['mount_point'],'static')
 # virtual_environment_path=ask_more_questions('virtual_environment_path: /usr/local/{{cookiecutter.framework_to_deploy}}/env_py3: ')
 # context['virtual_environment_path']=(virtual_environment_path or '/usr/local/{{cookiecutter.framework_to_deploy}}/env_py3')
 
+#Beauty of using mako after jinja processed the original templates is that I can use cookiecatter.json supplied answers to fill in
+# the missing code in python below, and then execute it again to generate more questions.
+
 #pyramid
 if context['framework_to_deploy']=='pyramid':
-    deployment_prod_or_dev=ask_more_questions(question='deployment_prod_or_dev: [development.ini] or production.ini :')
+    #Question:
+    deployment_prod_or_dev=ask_more_questions(question='Deployment prod or dev?: [development.ini] or production.ini :')
+    #set context to use supplied value or default on the right
     context['deployment_prod_or_dev']=(deployment_prod_or_dev or 'development.ini')
+    #Question:
+    if context['host_as_subdomain']=='y':
+        subdomain_name=ask_more_questions(question='Name of subdomain: [{{cookiecutter.package_name}}]:')
+        #set context to use supplied value or default on the right
+        context['subdomain_name']=(subdomain_name or {{cookiecutter.package_name}})
+    #Extra fields in context based on value selected that don't require any input
     context['static']=os.path.join('/',context['mount_point'],'static')
+#trac
 if context['framework_to_deploy']=='trac':
-    trac_auth_path=ask_more_questions(question='Basic Auth file location: ['+os.path.join(context['workfolder'],'.htpasswrd')+']:')
-    context['trac_auth_path']=(trac_auth_path or os.path.join(context['workfolder'],'.htpasswrd'))
+    #Question:
+    trac_auth_path=ask_more_questions(question='Basic Auth file location: ['+os.path.join(context['workfolder'],'.htpasswd')+']:')
+    #set context to use supplied value or default on the right
+    context['trac_auth_path']=(trac_auth_path or os.path.join(context['workfolder'],'.htpasswd'))
+    #Extra fields in context based on value selected that don't require any input
     context['trac_login']=os.path.join('/',context['mount_point'],'login')
 if context['framework_to_deploy']=='django':
     pass
@@ -125,7 +140,7 @@ print('''
 Documentation:          http://lucasmanual.com/mywiki/modwsgideploy
 Mod-wsgi Mailing List:  https://groups.google.com/forum/#!forum/modwsgi
 Modwsgideploy Chat:  https://gitter.im/dataassistant-co/modwsgideploy
-Welcome to modwsgideploy.  Build a web that make other people's life better.
+Welcome to modwsgideploy.  Deploy your app on Apache in under a minute.
 ===============================================================================
 
 Change directory into your newly created folder.
@@ -137,10 +152,27 @@ Copy the {{cookiecutter.package_name}}.conf to Apache2 sites-available folder (D
 Enable the new apache2 site
     sudo a2ensite {{cookiecutter.package_name}}
 
-You can change the owner of the wsgi and .python-eggs folder to apache owner.
-    sudo chown www-data:www-data {{cookiecutter.package_name}}.wsgi
-    sudo chown www-data:www-data .python-eggs
+You can change the owner of only the needed files to apache owner.
+    sudo chown www-data:www-data {{cookiecutter.package_name}}.wsgi''')
+if context['framework_to_deploy']=='pyramid':
+    print('''
+    sudo chown www-data:www-data .python-eggs''')
 
+if context['framework_to_deploy']=='trac':
+    print('''
+Lets create password file with first user name.
+    htpasswd -c ''',context['trac_auth_path'],''' admin
+
+If you have more users.
+    htpasswd ''',context['trac_auth_path'],''' adam
+    htpasswd ''',context['trac_auth_path'],''' eve
+
+In order to use api or email2trac www-data needs to own few more folders for trac
+Note that we are in apache2 folder and we need to go back to main trac project folder to change permissions
+    cd ''',context['package_folder'],'''
+    sudo chown -R www-data:www-data conf plugins files
+''')
+print('''
 Reload Apache2:
     sudo service apache2 reload
 

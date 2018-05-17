@@ -4,7 +4,6 @@
   "domain_name": "example.com",
   "framework_to_deploy": ["pyramid", "django","trac"],
   "host_as_subdomain":"{{cookiecutter.package_name}}.{{cookiecutter.domain_name}} [n]/y",
-  "subdomain_name":"{{cookiecutter.package_name}}",
   "use_virtualhost": "[y]/n",
   "Q1":"Which Mount Point: {{cookiecutter.domain_name}}/ or {{cookiecutter.domain_name}}/{{cookiecutter.package_name}} [Press Enter]",
   "mount_point":"/{{cookiecutter.package_name}}",

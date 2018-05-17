@@ -111,6 +111,9 @@ If you need help or would like to discuss: Go To: https://gitter.im/dataassistan
 
 Release Notes
 -------------
+3.18.19
+ * Move the subdomain to post_gen_project
+ * Update trac configuration files and instructions
 
 3.18.19
  * Allow to change the subdomain name vs project name

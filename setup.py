@@ -35,7 +35,7 @@ def add_to_package_data(pkg, roots):
 
 setup(
     name='modwsgideploy',
-    version='3.18.20',
+    version='3.18.21',
     keywords='apache2 modwsgi/libapache2-mod-wsgi-py3 pyramid deploy script',
     author='Lukasz Szybalski',
     author_email='szybalski@gmail.com',
